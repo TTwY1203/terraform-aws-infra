@@ -1,3 +1,3 @@
 # terraform-aws-infra
 
-A sustainable Terraform Package which creates Infra resources on AWS(TTwY1203)
+Terraform module which creates resources on AWS.(TTwY1203)
