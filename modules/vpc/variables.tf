@@ -1,3 +1,15 @@
+variable "tags" {
+  description = "A map of tags to add to all resources"
+  type        = map(string)
+  default     = {}
+}
+
+variable "vpc_tags" {
+  description = "Additional tags for the VPC"
+  type        = map(string)
+  default     = {}
+}
+
 variable "name" {
   description = "Desired name for the VPC resources."
   type        = string
@@ -31,4 +43,10 @@ variable "enable_ipv6" {
   description = "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block"
   type        = bool
   default     = false
+}
+
+variable "secondary_cidr_blocks" {
+  description = "List of secondary CIDR blocks to associate with the VPC to extend the IP Address pool"
+  type        = list(string)
+  default     = []
 }
