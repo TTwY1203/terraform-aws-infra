@@ -17,3 +17,13 @@ output "vpc_cidr_block" {
   description = "The CIDR block of the VPC"
   value       = aws_vpc.this.cidr_block
 }
+
+output "vpc_secondary_cidr_block" {
+  description = "List of secondary CIDR block of the VPC"
+  value       = var.secondary_cidr_blocks
+}
+
+output "internet_gateway_id" {
+  description = "The ID of the Internet Gateway"
+  value       = try(aws_internet_gateway.this.*.arn[0], null)
+}

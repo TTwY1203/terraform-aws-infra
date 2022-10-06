@@ -1,3 +1,8 @@
+variable "name" {
+  description = "Desired name for the VPC resources."
+  type        = string
+}
+
 variable "tags" {
   description = "A map of tags to add to all resources"
   type        = map(string)
@@ -20,11 +25,6 @@ variable "vpn_gateway_tags" {
   description = "Additional tags for the VPN gateway"
   type        = map(string)
   default     = {}
-}
-
-variable "name" {
-  description = "Desired name for the VPC resources."
-  type        = string
 }
 
 variable "cidr" {
