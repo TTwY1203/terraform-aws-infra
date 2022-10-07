@@ -107,8 +107,8 @@ variable "dhcp_options_netbios_name_servers" {
 
 variable "dhcp_options_netbios_node_type" {
   description = "Specify netbios node_type for DHCP options set (requires enable_dhcp_options set to true)"
-  type        = list(string)
-  default     = []
+  type        = string
+  default     = ""
 }
 
 variable "vpn_gateway_enabled" {
