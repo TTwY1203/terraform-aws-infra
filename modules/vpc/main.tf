@@ -22,7 +22,8 @@ resource "aws_vpc" "this" {
 resource "aws_vpc_ipv4_cidr_block_association" "this" {
   for_each = toset(var.secondary_cidr_blocks)
 
-  vpc_id     = local.vpc_id
+  # Do not turn this into 'local.vpc_id'
+  vpc_id     = aws_vpc.this.id
   cidr_block = each.key
 }
 
