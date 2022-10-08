@@ -1,5 +1,5 @@
 locals {
-  vpc_id = try(aws_vpc_ipv4_cidr_block_association.this[0].vpc_id, aws_vpc.this[0].id, "")
+  #vpc_id = try(aws_vpc_ipv4_cidr_block_association.this[0].vpc_id, aws_vpc.this[0].id, "")
 }
 
 ################################################################################
@@ -43,7 +43,7 @@ resource "aws_vpc_dhcp_options" "this" {
 resource "aws_vpc_dhcp_options_association" "this" {
   count = var.enable_dhcp_options ? 1 : 0
 
-  vpc_id          = local.vpc_id
+  vpc_id          = aws_vpc.this.id
   dhcp_options_id = aws_vpc_dhcp_options.this[0].id
 }
 
@@ -66,7 +66,7 @@ resource "aws_internet_gateway" "this" {
 resource "aws_egress_only_internet_gateway" "this" {
   count = var.enable_ipv6 && var.egress_only_internet_gateway_enabled ? 1 : 0
 
-  vpc_id = local.vpc_id
+  vpc_id = aws_vpc.this.id
 
   tags = merge(
     { "Name" = var.name },
@@ -81,7 +81,7 @@ resource "aws_egress_only_internet_gateway" "this" {
 resource "aws_vpn_gateway" "this" {
   count = var.vpn_gateway_enabled ? 1 : 0
 
-  vpc_id          = local.vpc_id
+  vpc_id          = aws_vpc.this.id
   amazon_side_asn = var.amazon_side_asn
 
   tags = merge(
