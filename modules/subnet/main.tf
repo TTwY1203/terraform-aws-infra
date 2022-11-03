@@ -17,7 +17,7 @@ resource "aws_subnet" "public" {
     {
       "Name" = format(
         "${var.name}-${var.public_subnet_suffix}-%s",
-        element(var.azs, count.index),
+        substr(element(var.azs, count.index), -1, 1),
       )
     },
     var.tags,
@@ -67,7 +67,7 @@ resource "aws_subnet" "database" {
     {
       "Name" = format(
         "${var.name}-${var.database_subnet_suffix}-%s",
-        element(var.azs, count.index),
+        substr(element(var.azs, count.index), -1, 1),
       )
     },
     var.tags,

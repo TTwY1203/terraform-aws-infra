@@ -89,13 +89,13 @@ variable "database_subnet_ipv6_prefixe" {
 variable "public_subnet_suffix" {
   description = "Suffix to append to public subnets name"
   type        = string
-  default     = "pub"
+  default     = "pub-sub"
 }
 
 variable "private_subnet_suffix" {
   description = "Suffix to append to private subnets name"
   type        = string
-  default     = "pri"
+  default     = "pri-sub"
 }
 
 variable "database_subnet_suffix" {
