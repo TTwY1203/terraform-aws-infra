@@ -3,6 +3,11 @@ variable "name" {
   type        = string
 }
 
+variable "env" {
+  description = "The VPC Environment"
+  type        = string
+}
+
 variable "vpc_id" {
   description = "The ID of the VPC which the subnet belongs to"
   type        = string
@@ -101,7 +106,7 @@ variable "private_subnet_suffix" {
 variable "database_subnet_suffix" {
   description = "Suffix to append to database subnets name"
   type        = string
-  default     = "db"
+  default     = "db-sub"
 }
 
 variable "tags" {

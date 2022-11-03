@@ -16,7 +16,7 @@ resource "aws_subnet" "public" {
   tags = merge(
     {
       "Name" = format(
-        "${var.name}-${var.public_subnet_suffix}-%s",
+        "${var.name}-${var.env}-${var.public_subnet_suffix}-%s",
         substr(element(var.azs, count.index), -1, 1),
       )
     },
@@ -42,7 +42,7 @@ resource "aws_subnet" "private" {
   tags = merge(
     {
       "Name" = format(
-        "${var.name}-${var.private_subnet_suffix}-%s",
+        "${var.name}-${var.env}-${var.private_subnet_suffix}-%s",
         substr(element(var.azs, count.index), -1, 1),
       )
     },
@@ -66,7 +66,7 @@ resource "aws_subnet" "database" {
   tags = merge(
     {
       "Name" = format(
-        "${var.name}-${var.database_subnet_suffix}-%s",
+        "${var.name}-${var.env}-${var.database_subnet_suffix}-%s",
         substr(element(var.azs, count.index), -1, 1),
       )
     },
