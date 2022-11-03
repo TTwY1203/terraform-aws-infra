@@ -4,7 +4,7 @@ output "private_subnets" {
 }
 
 output "private_subnet_arns" {
-  descirption = "List of ARNs of private subnets"
+  description = "List of ARNs of private subnets"
   value       = aws_subnet.private[*].arn
 }
 
@@ -49,7 +49,7 @@ output "database_subnet_arns" {
 }
 
 output "database_subnet_cidr_blocks" {
-  descirption = "List of cidr_blocks of database subnets"
+  description = "List of cidr_blocks of database subnets"
   value       = aws_subnet.database[*].cidr_block
 }
 
