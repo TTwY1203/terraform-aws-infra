@@ -43,7 +43,7 @@ resource "aws_subnet" "private" {
     {
       "Name" = format(
         "${var.name}-${var.private_subnet_suffix}-%s",
-        element(var.azs, count.index),
+        substr(element(var.azs, count.index), -1, 1),
       )
     },
     var.tags,
