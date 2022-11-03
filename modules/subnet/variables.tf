@@ -145,3 +145,9 @@ variable "database_subnet_group_name" {
   type        = string
   default     = null
 }
+
+variable "vpc_ipv6_cidr_block" {
+  description = "The IPv6 CIDR block"
+  type        = string
+  default     = ""
+}
