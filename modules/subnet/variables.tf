@@ -107,7 +107,7 @@ variable "database_subnet_suffix" {
 variable "tags" {
   description = "A map of tags to add to all resoruces"
   type        = map(string)
-  ddefault    = {}
+  default     = {}
 }
 
 variable "public_subnet_tags" {
