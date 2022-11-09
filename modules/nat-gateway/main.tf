@@ -28,7 +28,7 @@ resource "aws_nat_gateway" "this" {
   count = var.enable_nat_gateway ? local.nat_gateway_count : 0
 
   allocation_id = element(local.nat_gateway_ips, var.single_nat_gateway ? 0 : count.index)
-  subnet_id     = element(var.public_subnets.*.id, var.single_nat_gateway ? 0 : count.index)
+  subnet_id     = element(var.public_subnets, var.single_nat_gateway ? 0 : count.index)
 
   tags = merge(
     {
