@@ -67,3 +67,8 @@ output "database_subnet_group_name" {
   description = "Name of database subnet group"
   value       = try(aws_db_subnet_group.database[*].name, "")
 }
+
+output "azs" {
+  description = "A list of availability zones specified as argument to this module"
+  value       = var.azs
+}
