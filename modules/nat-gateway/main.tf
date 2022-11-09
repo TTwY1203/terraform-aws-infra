@@ -15,7 +15,8 @@ resource "aws_eip" "nat" {
   tags = merge(
     {
       "Name" = format(
-        "${var.name}-${var.env}-${substr(element(var.public_subnets.*.availability_zone, count.index), 14, 1)}-eip"
+        "${var.name}-${var.env}-nat-%s-eip",
+        substr(element(var.azs, count.index), -1, 1),
       )
     },
     var.tags,
@@ -32,7 +33,8 @@ resource "aws_nat_gateway" "this" {
   tags = merge(
     {
       "Name" = format(
-        "${var.name}-${var.env}-nat-${substr(element(var.public_subnets.*.availability_zone, count.index), 14, 1)}"
+        "${var.name}-${var.env}-nat-%s",
+        substr(element(var.azs, count.index), -1, 1),
       )
     },
     var.tags,

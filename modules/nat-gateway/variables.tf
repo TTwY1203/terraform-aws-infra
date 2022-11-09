@@ -8,6 +8,12 @@ variable "env" {
   type        = string
 }
 
+variable "azs" {
+  description = "A list of availability zones names of ids in the region"
+  type        = list(string)
+  default     = []
+}
+
 variable "reuse_nat_ips" {
   description = "Should be true if you don't want EIPs to be created for your NAT Gateways and will instead pass them in via the 'external_nat_ip_ids' variable"
   type        = bool
