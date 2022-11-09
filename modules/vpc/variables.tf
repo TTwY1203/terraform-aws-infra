@@ -4,7 +4,7 @@ variable "name" {
 }
 
 variable "env" {
-  description = "the VPC Environment"
+  description = "The VPC Environment"
   type        = string
 }
 
