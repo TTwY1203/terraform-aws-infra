@@ -63,7 +63,7 @@ resource "aws_route_table_association" "private" {
 }
 
 resource "aws_route" "private_nat" {
-  count = length(var.private_subnets) > 0 ? length(var.private_subnets) : 0
+  count = var.single_nat_gateway ? 1 : length(var.natgw_ids)
   route_table_id = element(
     aws_route_table.private[*].id,
     var.single_nat_gateway ? 0 : count.index,
