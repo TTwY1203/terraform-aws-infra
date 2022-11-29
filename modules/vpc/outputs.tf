@@ -25,7 +25,7 @@ output "vpc_secondary_cidr_block" {
 
 output "internet_gateway_id" {
   description = "The ID of the Internet Gateway"
-  value       = try(aws_internet_gateway.this.*.arn[0], null)
+  value       = try(aws_internet_gateway.this.*.id[0], null)
 }
 
 output "vpc_ipv6_cidr_block" {
