@@ -12,6 +12,10 @@ resource "aws_eip" "nat" {
 
   vpc = true
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
   tags = merge(
     {
       "Name" = format(
@@ -29,6 +33,10 @@ resource "aws_nat_gateway" "this" {
 
   allocation_id = element(local.nat_gateway_ips, var.single_nat_gateway ? 0 : count.index)
   subnet_id     = element(var.public_subnets, var.single_nat_gateway ? 0 : count.index)
+
+  lifecycle {
+    create_before_destroy = true
+  }
 
   tags = merge(
     {

@@ -1,4 +1,4 @@
-output "id" {
+output "natgw_ids" {
   description = "The ID of the NAT Gateway."
   value       = aws_nat_gateway.this[*].id
 }
@@ -26,4 +26,9 @@ output "public_ip" {
 output "private_ip" {
   description = "The private IP address of the NAT Gateway."
   value       = aws_nat_gateway.this[*].private_ip
+}
+
+output "single_nat_gateway" {
+  description = "Should be true if you want to provision a single shared NAT Gateway across all of your private networks"
+  value       = var.single_nat_gateway
 }
