@@ -49,6 +49,12 @@ variable "public_route_table_tags" {
   default     = {}
 }
 
+variable "private_route_table_tags" {
+  description = "Additional tags for the private route tables"
+  type        = map(string)
+  default     = {}
+}
+
 variable "internet_gateway_id" {
   description = "The ID of the Internet Gateway"
   type        = string
